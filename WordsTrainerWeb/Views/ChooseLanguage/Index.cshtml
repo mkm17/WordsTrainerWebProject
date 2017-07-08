@@ -1,0 +1,51 @@
+﻿@model WordsTrainerWeb.Models.Helper_classes.LanguageAndStrategyContener
+
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    .row{
+        padding:10px;
+    }
+</style>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h2>Settings of your learning</h2>
+        <hr />
+
+        <div class="form-group">
+            <div class="row">
+                <h5 class="control-label col-md-2">Choose Language</h5>
+                <div class="col-md-10">
+                    @Html.DropDownListFor(
+                    x => x.language.id,
+                    new SelectList(ViewBag.Languages, "id", "name"),
+                     new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="row">
+                <br style="height:26px" />
+            </div>
+            <div class="row">
+                <h5 class="control-label col-md-2">Choose Strategy</h5>
+                <div class="col-md-10">
+                    @Html.DropDownListFor(
+                    x => x.strategy.id,
+                    new SelectList(ViewBag.Strategies, "id", "name"),
+                    new { @class = "form-control" })
+
+                    @Html.ValidationMessageFor(model => model, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}

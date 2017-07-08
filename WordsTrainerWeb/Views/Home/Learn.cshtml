@@ -1,0 +1,411 @@
+﻿@model SelectList
+
+@{
+    ViewBag.Title = "Learn";
+
+}
+
+<style>
+    .icon-success {
+        color: #5CB85C;
+    }
+
+    .icon-failure {
+        color: #ff4d4d;
+    }
+
+    .hourGlass {
+        padding-top: 50px;
+    }
+
+    .progress-bar {
+        background-color: #1E1ADA !important;
+    }
+
+    .mainButton1 {
+        background-color: #AA00A2;
+        color: #FFF;
+        border-color: #AA00A2;
+        box-shadow: 0px 5px 0px 0px #660061;
+        text-align: center;
+        font-size: 18px;
+    }
+
+    #wordText {
+        padding-top: 10px;
+    }
+
+    .mainButton2 {
+        background-color: #AA00A2;
+        color: #FFF;
+        border-color: #AA00A2;
+        text-align: center;
+        font-size: 18px;
+    }
+
+    .mainButton {
+        background: #0fadc0;
+        padding: 7px;
+        color: #fff;
+        text-align: center;
+        font-size: 20px;
+    }
+
+    #wordText {
+        border: 1px dashed #fff;
+        border-color: rgba(255, 255, 255, 0.5);
+        height: 50px;
+    }
+
+    .options {
+        background-color: #FF9F1C;
+        color: #FFF;
+        border-color: #FF9F1C;
+        box-shadow: 0px 5px 0px 0px #A35F00;
+        text-align: center;
+        font-size: 18px;
+        margin: 10px 0px 10px 0;
+        transition: all 0.2s;
+    }
+
+        .options:hover {
+            box-shadow: 0px 0px 0px 0px #007144;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+    .btnBlueGreen {
+        margin: 10px 20px 10px 0;
+        text-align: center;
+        background: #00AE68;
+        color: #ffffff;
+        transition: all 0.2s;
+        font-size: 18px;
+        width: 100%;
+        height: 50px;
+        transition: visibility 0s, opacity 0.5s linear;
+    }
+
+    .btnPush:hover {
+        margin-top: 15px;
+        margin-bottom: 5px;
+    }
+
+    .btnBlueGreen.btnPush {
+        box-shadow: 0px 5px 0px 0px #007144;
+    }
+
+    .btnBlueGreen.btnPush:hover {
+        box-shadow: 0px 0px 0px 0px #007144;
+    }
+
+    .table{
+        word-wrap: break-word;
+        table-layout: fixed;
+    }
+    .successRow{
+        background-color:rgb(164, 247, 214) !important;
+    }
+    .failureRow{
+        background-color:rgb(250, 175, 175) !important;
+    }
+</style>
+
+<script src="/Scripts/jquery-1.10.2.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="~/Content/HourGlass.css">
+<link rel="stylesheet" type="text/css" href="~/Content/Ribbon.css">
+
+<script type="text/javascript">
+
+    var listOfWords;
+    var currentWord = 0;
+    var resultsTable = {};
+    var lastWordId;
+    var enableEnter = false;
+    var numberOfWords=0;
+
+    function showResults(resultsList) {
+
+        $(".options").addClass("hidden");
+        $("#TextInput").addClass("hidden");
+        $("#submit").addClass("hidden");
+        $("#wordText").addClass("hidden");
+        $("#resultMessage").removeClass("hidden");
+        $(".mainButton").addClass("hidden");
+
+
+        $.ajax({
+            url: '/Home/GetResults',
+            type: 'POST',
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify({ option: resultsList }),
+            traditional: true,
+            success: function (data) {
+
+                $("#result").text(data.Result + "%");
+                for (var i = 0 ; i < data.List.length; i++) {
+
+                    var row = "";
+                    if (data.List[i].LevelUp == 1) {
+                        row += "<tr class='successRow'>";
+                    } else {
+                        row += "<tr class='failureRow'>";
+                    }
+                    row += "<td>" + data.List[i].Word + "</td>"
+                    row += "<td>" + data.List[i].WordExt + "</td>"
+                    row += "<td>" + data.List[i].YourResult + "</td>"
+                    row += "<td>" + data.List[i].Level + "</td>"
+
+                    row += "</tr>"
+
+                    $("#ResultTableBody").append(row);
+                }
+
+            },
+            error: function (error) {
+                alert(error.responseText);
+            }
+
+        });
+
+    }
+
+    function displayWord(learningUnit) {
+
+        if (currentWord == numberOfWords) {
+            showResults(resultsTable);
+            return;
+        }
+
+        $("#wordText").text(learningUnit.Word);
+
+
+        $(".options").addClass("hidden");
+        $("#TextInput").addClass("hidden");
+        $("#submit").addClass("hidden");
+
+        $("#currentWord").removeClass("hidden");
+        $("#currentBar").removeClass("hidden");
+
+        $("#wordText").removeClass("hidden");
+        $(".mainButton").removeClass("hidden");
+
+        lastWordId = learningUnit.WordID;
+        enableEnter = false;
+
+        switch (learningUnit.Exercise) {
+            case "Learning":
+
+                $("#learning").text(learningUnit.Options[0]);
+                $("#learning").removeClass("hidden");
+
+                break;
+            case "Choose":
+
+                for (var j = 0; j < learningUnit.Options.length; j++) {
+                    $("#option" + (j + 1)).removeClass("hidden");
+                    $("#option" + (j + 1)).text(learningUnit.Options[j]);
+                }
+
+                break;
+            case "Writing":
+
+                $("#TextInput").removeClass("hidden");
+                $("#submit").removeClass("hidden");
+                $("#TextInput").focus();
+                enableEnter = true;
+                break;
+            default:
+
+        }
+    }
+
+
+    $(document).ready(function () {
+
+        $('#button').click(function () {
+
+            $('#button').addClass("hidden");
+            $('.hourGlass').removeClass("hidden");
+
+            var language = $('#LanguageType :selected').text();
+            
+            $.ajax({
+                url: '/Home/GetWords',
+                type: 'POST',
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify({ option: language }),
+                traditional: true,
+                success: function (data) {
+
+                    listOfWords = data;
+                    currentWord = 1;
+                    numberOfWords=data.length;
+                    console.log(numberOfWords);
+                    displayWord(listOfWords[0]);
+
+                    $(".hourGlass").addClass("hidden");
+                    $('#LanguageType').addClass("hidden");
+                    $("#currentWord").width(currentWord * 5 + "%");
+
+                },
+                error: function (error) {
+
+                    console.log(error.responseText);
+                }
+
+            });
+
+        });
+
+        $('.options').click(function () {
+
+            resultsTable[lastWordId] = $(this).text();
+            currentWord += 1
+            $("#currentWord").width(Math.round(currentWord /numberOfWords*100)+ "%");
+            
+            
+            displayWord(listOfWords[currentWord]);
+
+            console.log(numberOfWords);
+
+        });
+
+        $('#submit').click(function () {
+
+            resultsTable[lastWordId] = $("#TextInput").val();
+            currentWord += 1
+            $("#currentWord").width(Math.round(currentWord /numberOfWords*100) + "%");
+
+            displayWord(listOfWords[currentWord]);
+
+            $("#TextInput").val("");
+            console.log(numberOfWords);
+
+        });
+
+        $(document).keypress(function (e) {
+            if (enableEnter) {
+                if (e.which == 13) {
+                    $(this).blur();
+                    $('#submit').focus().click();
+                }
+            }
+        });
+    });
+</script>
+
+
+
+<div class="panel panel-default">
+
+    <!--<div class="row panel-heading">
+        <h2>Learning</h2>
+    </div>-->
+
+    <div class="panel-body">
+        <div class="row text-center">
+
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+                <button id="button" class="btnBlueGreen btnPush btn" type="button" onclick="click()">Start Lesson</button>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+        <div class="row">
+            <div id="currentBar" class="progress hidden">
+                <div id="currentWord" class="progress-bar hidden" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8  mainButton alert hidden">
+                <div id="wordText" class="hidden">
+
+                </div>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+
+        <div class="hourGlass row hidden">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+                <div id="loader">
+                    <div id="top"></div>
+                    <div id="bottom"></div>
+                    <div id="line"></div>
+                </div>
+            </div>
+            <div class="col-lg-4"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8 options hidden alert fade in" id="learning"></div>
+            <div class="col-lg-2"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-3 options hidden alert fade in" id="option1"></div>
+            <div class="col-lg-2"></div>
+            <div class="col-lg-3 options hidden alert fade in" id="option2"></div>
+            <div class="col-lg-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-3 options hidden alert fade in" id="option3"></div>
+            <div class="col-lg-2"></div>
+            <div class="col-lg-3 options hidden alert fade in" id="option4"></div>
+            <div class="col-lg-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-3 options hidden alert fade in" id="option5"></div>
+            <div class="col-lg-2"></div>
+            <div class="col-lg-3 options hidden alert fade in" id="option6"></div>
+            <div class="col-lg-2"></div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-6"><input class="hidden form-control" id="TextInput" type="text" name="text" value="" style="max-width:1280px" /></div>
+                <div class="col-lg-2"><button class="hidden btn btn-primary " id="submit" type="button">OK</button></div>
+                <div class="col-lg-2"></div>
+            </div>
+        </div>
+
+        <div class="hidden" id="resultMessage">
+            <div class="row"><div class="col-lg-12"><h2>Results:</h2></div></div>
+            <div class="row"><div class="col-lg-12"><h4 id="result"></h4></div></div>
+            <div class="row">
+                <table class="table ">
+                    <thead>
+                        <tr>
+                            <th>Word</th>
+                            <th>Meaning</th>
+                            <th>Your answer</th>
+                            <th>Level</th>
+                            <!--<th>OK?</th>              table-striped       -->
+                        </tr>
+                    </thead>
+                    <tbody id="ResultTableBody"></tbody>
+                </table>
+            </div>
+            <div class="row">
+                <button class="btn btn-info" type="button" id="resultButton"
+                        onclick="location.href='@Url.Action("Index", "Home")'">
+                    Go To Main Page
+                </button>
+
+                <button class="btn btn-info" type="button" id="repeatlearning"
+                        onclick="location.href='@Url.Action("Index", "Home/Learn")'">
+                    Learn again
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

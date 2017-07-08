@@ -1,0 +1,56 @@
+﻿@model WordsTrainerWeb.Models.ExternalLoginListViewModel
+@using Microsoft.Owin.Security
+
+<style>
+    div.social-wrap button {
+        padding-right: 45px;
+        height: 35px;
+        background: none;
+        border: none;
+        display: block;
+        background-size: 35px 35px;
+        background-position: right center;
+        background-repeat: no-repeat;
+        border-radius: 4px;
+        color: white;
+        font-size: 14px;
+        margin-bottom: 15px;
+        width: 205px;
+        border-bottom: 2px solid transparent;
+        border-left: 1px solid transparent;
+        border-right: 1px solid transparent;
+        box-shadow: 0 4px 2px -2px gray;
+        text-shadow: rgba(0, 0, 0, 0.5) -1px -1px 0;
+    }
+
+    button#Facebook {
+        border-color: #2d5073;
+        background-color: #3b5998;
+        background-image: url(http://icons.iconarchive.com/icons/danleech/simple/512/facebook-icon.png);
+    }
+</style>
+<h4>Use another service to log in.</h4>
+<hr />
+@{
+    var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
+    if (loginProviders.Count() == 0) {
+        <div>
+            <p>
+                There are no external authentication services configured. See <a href="http://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
+                for details on setting up this ASP.NET application to support logging in via external services.
+            </p>
+        </div>
+    }
+    else {
+        using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = Model.ReturnUrl })) {
+            @Html.AntiForgeryToken()
+            <div id="socialLoginList" class="social-wrap">
+                
+                    @foreach (AuthenticationDescription p in loginProviders) {
+                        <button type="submit" class="btn facebook" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">@p.AuthenticationType</button>
+                    }
+                
+            </div>
+        }
+    }
+}

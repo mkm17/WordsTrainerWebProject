@@ -1,0 +1,17 @@
+﻿
+
+body{
+    font: Open Sans;
+    font-weight: 400;
+    font-size: 14px;
+    color: #FFFFFF;
+    letter-spacing: 1px;
+    opacity: 0.85;
+    font-family: Roboto,Noto Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+    }
+ .navbar-fixed-top{
+    background-color: rgb(3, 169, 244);
+    border-color: rgb(3,150,244);
+ }
+
+
