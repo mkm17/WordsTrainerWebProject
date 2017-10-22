@@ -22,7 +22,7 @@
 
                 },
                 error: function (error) {
-                    alert(error.responseText);
+                    console.error(error.responseText);
                 }
 
             });
@@ -48,35 +48,6 @@
 
 
 </script>
-<style>
-    .emptyStar:hover {
-        background-image: url('../../Images/FullStar.png');
-        background-size: 50px 50px;
-        width: 50px;
-        height: 50px;
-        background-repeat: no-repeat;
-    }
-
-    .emptyStar {
-        background-image: url('../../Images/emptyStar.png');
-        background-size: 50px 50px;
-        width: 50px;
-        height: 50px;
-        background-repeat: no-repeat;
-    }
-
-    .fullStar {
-        background-image: url('../../Images/FullStar.png');
-        background-size: 50px 50px;
-        width: 50px;
-        height: 50px;
-        background-repeat: no-repeat;
-    }
-    .table{
-        word-wrap: break-word;
-        table-layout: fixed;
-    }
-</style>
 <h2>Index</h2>
 
 <div class="input-group">

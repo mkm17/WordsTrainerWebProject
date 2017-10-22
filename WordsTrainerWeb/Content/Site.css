@@ -1,9 +1,4 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
-}
-
-/* Set padding to keep content from hitting the edges */
+﻿/* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
@@ -33,4 +28,234 @@ textarea {
         float: none;
         padding: 10px 15px;
     }
+}
+
+div.social-wrap button {
+    padding-right: 45px;
+    height: 35px;
+    background: none;
+    border: none;
+    display: block;
+    background-size: 35px 35px;
+    background-position: right center;
+    background-repeat: no-repeat;
+    border-radius: 4px;
+    color: white;
+    font-size: 14px;
+    margin-bottom: 15px;
+    width: 205px;
+    border-bottom: 2px solid transparent;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    box-shadow: 0 4px 2px -2px gray;
+    text-shadow: rgba(0, 0, 0, 0.5) -1px -1px 0;
+}
+
+button#Facebook {
+    border-color: #2d5073;
+    background-color: #3b5998;
+    background-image: url(http://icons.iconarchive.com/icons/danleech/simple/512/facebook-icon.png);
+}
+
+.row {
+    padding: 10px;
+}
+
+.icon {
+    width: 48px;
+    height: 48px;
+}
+
+.icon-success {
+    color: #5CB85C;
+}
+
+.icon-failure {
+    color: #ff4d4d;
+}
+
+.hourGlass {
+    padding-top: 50px;
+}
+
+.progress-bar {
+    background-color: #1E1ADA !important;
+}
+
+.mainButton1 {
+    background-color: #AA00A2;
+    color: #FFF;
+    border-color: #AA00A2;
+    box-shadow: 0px 5px 0px 0px #660061;
+    text-align: center;
+    font-size: 18px;
+}
+
+#wordText {
+    padding-top: 10px;
+}
+
+.mainButton2 {
+    background-color: #AA00A2;
+    color: #FFF;
+    border-color: #AA00A2;
+    text-align: center;
+    font-size: 18px;
+}
+
+.mainButton {
+    background: #0fadc0;
+    padding: 7px;
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+}
+
+#wordText {
+    border: 1px dashed #fff;
+    border-color: rgba(255, 255, 255, 0.5);
+    height: 50px;
+}
+
+.options {
+    background-color: #FF9F1C;
+    color: #FFF;
+    border-color: #FF9F1C;
+    box-shadow: 0px 5px 0px 0px #A35F00;
+    text-align: center;
+    font-size: 18px;
+    margin: 10px 0px 10px 0;
+    transition: all 0.2s;
+}
+
+    .options:hover {
+        box-shadow: 0px 0px 0px 0px #007144;
+        margin-top: 15px;
+        margin-bottom: 5px;
+    }
+
+.btnBlueGreen {
+    margin: 10px 20px 10px 0;
+    text-align: center;
+    background: #00AE68;
+    color: #ffffff;
+    transition: all 0.2s;
+    font-size: 18px;
+    width: 100%;
+    height: 50px;
+    transition: visibility 0s, opacity 0.5s linear;
+}
+
+.btnPush:hover {
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.btnBlueGreen.btnPush {
+    box-shadow: 0px 5px 0px 0px #007144;
+}
+
+    .btnBlueGreen.btnPush:hover {
+        box-shadow: 0px 0px 0px 0px #007144;
+    }
+
+.table {
+    word-wrap: break-word;
+    table-layout: fixed;
+}
+
+.successRow {
+    background-color: rgb(164, 247, 214) !important;
+}
+
+.failureRow {
+    background-color: rgb(250, 175, 175) !important;
+}
+
+.navbar-brand {
+    background-image: url('../../Images/logo1.PNG');
+    background-size: 60px 50px;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 50px;
+    width: 100px;
+    border: none;
+}
+
+    .navbar-brand:hover {
+        background-image: url('../../Images/logo2.PNG');
+    }
+
+#languageFlag {
+    height: 35px;
+    width: 50px;
+    background-size: 50px 35px;
+    vertical-align: middle;
+    margin: 7px 0;
+    margin-left: 15px;
+}
+
+.visibleNumber {
+    border-radius: 50%;
+    position: absolute;
+    float: right;
+    top: -2px;
+    background-color: coral;
+    min-width: 20px;
+    height: 20px;
+    color: white;
+    text-align: center;
+    font-size: medium;
+    -moz-transition: all .51s;
+    -o-transition: all .51s;
+    -webkit-transition: all .51s;
+    transition: all .51s;
+}
+
+    .visibleNumber:hover {
+        border-radius: 0;
+        background-color: azure;
+        color: black;
+    }
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    font-weight: 450;
+    font-size: 14px;
+    /*color: #FFFFFF;*/
+    letter-spacing: 1px;
+    opacity: 0.85;
+    font-family: Roboto,Noto Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+ .emptyStar:hover {
+        background-image: url('../../Images/FullStar.png');
+        background-size: 50px 50px;
+        width: 50px;
+        height: 50px;
+        background-repeat: no-repeat;
+    }
+
+    .emptyStar {
+        background-image: url('../../Images/emptyStar.png');
+        background-size: 50px 50px;
+        width: 50px;
+        height: 50px;
+        background-repeat: no-repeat;
+    }
+
+    .fullStar {
+        background-image: url('../../Images/FullStar.png');
+        background-size: 50px 50px;
+        width: 50px;
+        height: 50px;
+        background-repeat: no-repeat;
+    }
+    .table{
+        word-wrap: break-word;
+        table-layout: fixed;
+    }
+.navbar-fixed-top {
+    background-color: rgb(3, 169, 244);
+    border-color: rgb(3,150,244);
 }
