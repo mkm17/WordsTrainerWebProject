@@ -1,7 +1,17 @@
-﻿/* Set padding to keep content from hitting the edges */
+﻿/*
+    Bookshelf image used https://pixabay.com/en/library-books-knowledge-information-1147815/
+    Font used http://www.fontspace.com/nimavisual/autobus-bold
+*/
+
+@font-face {
+    font-family: 'Autobus-Bold';
+    src: url('../fonts/Autobus-Bold.ttf') format('truetype');
+}
+
+/* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    /* padding-left: 15px;
+    padding-right: 15px;*/
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -41,7 +51,7 @@ div.social-wrap button {
     background-repeat: no-repeat;
     border-radius: 4px;
     color: white;
-    font-size: 14px;
+    font-size: 17px;
     margin-bottom: 15px;
     width: 205px;
     border-bottom: 2px solid transparent;
@@ -64,6 +74,7 @@ button#Facebook {
 .icon {
     width: 48px;
     height: 48px;
+    margin: 5px;
 }
 
 .icon-success {
@@ -222,40 +233,72 @@ body {
     padding-top: 50px;
     padding-bottom: 20px;
     font-weight: 450;
-    font-size: 14px;
+    font-size: 17px;
     /*color: #FFFFFF;*/
     letter-spacing: 1px;
     opacity: 0.85;
-    font-family: Roboto,Noto Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-family: 'Autobus-Bold',Roboto,Noto Sans,Helvetica Neue,Helvetica,Arial,sans-serif !important;
 }
- .emptyStar:hover {
-        background-image: url('../../Images/FullStar.png');
-        background-size: 50px 50px;
-        width: 50px;
-        height: 50px;
-        background-repeat: no-repeat;
-    }
 
-    .emptyStar {
-        background-image: url('../../Images/emptyStar.png');
-        background-size: 50px 50px;
-        width: 50px;
-        height: 50px;
-        background-repeat: no-repeat;
-    }
+.emptyStar:hover {
+    background-image: url('../../Images/FullStar.png');
+    background-size: 50px 50px;
+    width: 50px;
+    height: 50px;
+    background-repeat: no-repeat;
+}
 
-    .fullStar {
-        background-image: url('../../Images/FullStar.png');
-        background-size: 50px 50px;
-        width: 50px;
-        height: 50px;
-        background-repeat: no-repeat;
-    }
-    .table{
-        word-wrap: break-word;
-        table-layout: fixed;
-    }
-.navbar-fixed-top {
+.emptyStar {
+    background-image: url('../../Images/emptyStar.png');
+    background-size: 50px 50px;
+    width: 50px;
+    height: 50px;
+    background-repeat: no-repeat;
+}
+
+.fullStar {
+    background-image: url('../../Images/FullStar.png');
+    background-size: 50px 50px;
+    width: 50px;
+    height: 50px;
+    background-repeat: no-repeat;
+}
+
+.table {
+    word-wrap: break-word;
+    table-layout: fixed;
+}
+
+.banner-image {
+    width: 100%;
+    height: 300px;
+    background-image: url('../Images/library-1147815_960_720.jpg');
+    opacity: 1;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 95px;
+}
+.banner-text{
+    margin-top:auto;
+    margin-bottom:auto;
+    height:132px;
+    color: white;
+    font-size:56px;
+    text-shadow: 5px 5px 5px #000000;
+}
+
+p {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+.desc-container {
+    padding: 25px;
+}
+/*.navbar-fixed-top {
     background-color: rgb(3, 169, 244);
     border-color: rgb(3,150,244);
-}
+}*/

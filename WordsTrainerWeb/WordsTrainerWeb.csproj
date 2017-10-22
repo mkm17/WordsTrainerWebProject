@@ -259,6 +259,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Images\chart_line.png" />
     <Content Include="Content\Layoutstyle.css" />
+    <Content Include="Images\library-1147815_960_720.jpg" />
     <Content Include="Images\package_games_board.png" />
     <Content Include="Content\Ribbon.css" />
     <Content Include="Content\Site.css" />
@@ -294,6 +295,7 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="fonts\Autobus-Bold.ttf" />
     <None Include="Properties\PublishProfiles\mkm17.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Content\HourGlass.css" />
