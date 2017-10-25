@@ -33,7 +33,7 @@
             traditional: true,
             success: function (data) {
 
-                if (data > 0) {
+                if (data) {
                     $("#numberOfNewWords").addClass("visibleNumber")
                     $("#numberOfNewWords").text("NEW");
                 }
@@ -51,7 +51,7 @@
             traditional: true,
             success: function (data) {
 
-                if (data != null) {
+                if (data) {
                     // $("#language").text(data)
                     $("#languageFlag").css("background-image", "url('/Images/" + data + "flag.png')");
                 }

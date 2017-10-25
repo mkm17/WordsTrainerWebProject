@@ -1,20 +1,37 @@
 ﻿<!--
 http://www.tabsicons.com
 -->
-<div class="banner-image"> <div class="banner-text">Make a learn of words simple.</div></div>
+<div class="banner-image"> <div class="banner-text">Make learning of words simple.</div></div>
 <div class="jumbotron">
     <h1>The Words APP</h1>
-    <p class="lead">The Words app is a simple web application to learn new words in several languages.</p>
-    <div>
-        <div>@Html.ActionLink("Login", "Login", "Account")</div>
-        <div>@Html.ActionLink("Register", "Register", "Account")</div>
-    </div>
+    <p class="lead">
+        The Words app is a simple web application to learn new words in several languages.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis sem sed diam feugiat pellentesque. Aenean vehicula lacus sed magna blandit, nec finibus urna gravida. Aenean rhoncus ligula sit amet lobortis molestie. Nullam purus risus, iaculis id eros vitae, placerat euismod nibh. Sed mollis ultrices convallis. Nam posuere tristique arcu.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis sem sed diam feugiat pellentesque. Aenean vehicula lacus sed magna blandit, nec finibus urna gravida. Aenean rhoncus ligula sit amet lobortis molestie. Nullam purus risus, iaculis id eros vitae, placerat euismod nibh. Sed mollis ultrices convallis. Nam posuere tristique arcu.
+    </p>
+    @if (!Request.IsAuthenticated)
+    {
+        <div class="home-buttons">
+            <div class="home-login-button">@Html.ActionLink("Login", "Login", "Account")</div>
+            <div class="register-container">
+                <div class="home-register-button">@Html.ActionLink("Register", "Register", "Account")</div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="learn-button">@Html.ActionLink("Learn", "Learn", "Home")</div>
+    }
 </div>
 <div class="row">
     <div class="col-md-4">
         <div class="desc-container">
             <h2><img class="icon" src="~/Images/Skip-Forward.png" />Skip known words</h2>
-            <p> Review a rich vocabulary of the application and select only those which are the most relevant for you.</p>
+            <p>
+                Review a rich vocabulary of the application and select only those which are the most relevant for you.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis sem sed diam feugiat pellentesque. Aenean vehicula lacus sed magna blandit,
+                nec finibus urna gravida. Aenean rhoncus ligula sit amet lobortis molestie. Nullam purus risus, iaculis id eros vitae, placerat euismod nibh. Sed mollis ultrices convallis. Nam posuere tristique arcu.
+            </p>
         </div>
 
     </div>
@@ -22,19 +39,31 @@ http://www.tabsicons.com
     <div class="col-md-4">
         <div class="desc-container">
             <h2><img class="icon" src="~/Images/package_games_board.png" />Change your tactic</h2>
-            <p>Select your current learning tactic. At the beginning learn more new words. After some time change a method for preserving your words.</p>
+            <p>
+                Select your current learning tactic. At the beginning learn more new words. After some time change a method for preserving your words.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis sem sed diam feugiat pellentesque. Aenean vehicula lacus sed magna blandit, nec finibus urna gravida. Aenean rhoncus ligula sit amet lobortis molestie. Nullam purus risus, iaculis id eros vitae, placerat euismod nibh. Sed mollis ultrices convallis. Nam posuere tristique arcu.
+            </p>
         </div>
     </div>
 
     <div class="col-md-4">
         <div class="desc-container">
             <h2><img class="icon" src="~/Images/chart_line.png" />Check your progress</h2>
-            <p>You will obtain continuously access to statistic of your learning process.</p>
+            <p>
+                You will obtain continuously access to statistic of your learning process. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Morbi quis sem sed diam feugiat pellentesque. Aenean vehicula lacus sed magna blandit, nec finibus urna gravida. Aenean rhoncus ligula sit amet lobortis molestie. Nullam purus risus, iaculis id eros vitae, placerat euismod nibh. Sed mollis ultrices convallis. Nam posuere tristique arcu.
+            </p>
         </div>
     </div>
 </div>
 <div class="row">
+    <h2>Do you have any comment? Contact us!</h2>
+    <div class="col-md-4">
 
+    </div>
+    <div class="col-md-8">
 
+    </div>
 </div>
+<div class="absolute-object"></div>
 <!-- /ko -->

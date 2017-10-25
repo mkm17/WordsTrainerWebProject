@@ -5343,7 +5343,7 @@ a.list-group-item:focus {
 }
 
 .panel-body {
-  padding: 15px;
+  padding: 5%;
 }
 
 .panel-body:before,

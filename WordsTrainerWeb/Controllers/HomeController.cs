@@ -66,12 +66,9 @@ namespace WordsTrainerWeb.Controllers
         public JsonResult GetWords(String option)
         {
 
-                object traning;
+            object traning;
             wordContext = new WordsContext();
-
-
             LearningStrategy ls;
-
             usercl = wordContext.Users.Where(x => x.name == User.Identity.Name).FirstOrDefault();
             int learningStrategy = usercl.settings.numberOfWordsPerLearning;
             ls = new NormalLearningStrategy();
@@ -93,19 +90,9 @@ namespace WordsTrainerWeb.Controllers
             Random randomNumber = new Random();
 
             int languageName = usercl.settings.currentLangage.id;
-            //IEnumerable<UserWord> allLangWords = usercl.usersWords.Where(x => x.word.foreignLanguage.name == languageName).ToList();
-            //IEnumerable<UserWord> allLangWords = usercl.usersWords.Where(x => x.word.foreignLanguage.id == usercl.settings.currentLangage.id).ToList();
             //take all words where level of knowledge (1-10) is smaller than 6 
             IEnumerable<UserWord> wordsForLearn = new List<UserWord>();
             int numberOfLanguageWords = wordContext.UserWords.Where(x => x.word.foreignLanguage.id == languageName).Count();
-            //Take new words to fill gap in number of learning words
-            /* if (wordsForLearn.Count() < ls.getSumOFWords())
-             {
-                 wordsForLearn = wordContext.UserWords
-                     .Where(x => x.levelOfKnowledge == 0 && x.word.foreignLanguage.id == languageName
-                     && x.user.id == usercl.id).Take(ls.getNewWords());
-
-             }*/
 
             if (wordsForLearn.Count() < ls.getSumOFWords())
             {
@@ -289,7 +276,6 @@ namespace WordsTrainerWeb.Controllers
 
         }
 
-        [AllowAnonymous]
         [HttpPost]
         public JsonResult GetUserRemainingWords()
         {
@@ -312,7 +298,6 @@ namespace WordsTrainerWeb.Controllers
             }
         }
 
-        [AllowAnonymous]
         [HttpPost]
         public JsonResult AddNewLanguageWords()
         {
@@ -340,7 +325,6 @@ namespace WordsTrainerWeb.Controllers
             }
         }
 
-        [AllowAnonymous]
         [HttpPost]
         public JsonResult GetCurrentLanguage()
         {
