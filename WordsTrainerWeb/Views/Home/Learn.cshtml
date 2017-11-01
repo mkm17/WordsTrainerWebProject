@@ -192,113 +192,110 @@
 
 
 <div class="panel panel-default">
+    <div class="learning-page">
+        <div class="panel-body">
+            <div class="row text-center">
 
-    <!--<div class="row panel-heading">
-        <h2>Learning</h2>
-    </div>-->
-
-    <div class="panel-body">
-        <div class="row text-center">
-
-            <div class="col-lg-2"></div>
-            <div class="col-lg-8">
-                <button id="button" class="btnBlueGreen btnPush btn" type="button" onclick="click()">Start Lesson</button>
-            </div>
-            <div class="col-lg-2"></div>
-        </div>
-        <div class="row">
-            <div id="currentBar" class="progress hidden">
-                <div id="currentWord" class="progress-bar hidden" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:0%">
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-
-            <div class="col-lg-2"></div>
-            <div class="col-lg-8  mainButton alert hidden">
-                <div id="wordText" class="hidden">
-
-                </div>
-            </div>
-            <div class="col-lg-2"></div>
-        </div>
-
-        <div class="hourGlass row hidden">
-            <div class="col-lg-4"></div>
-            <div class="col-lg-4">
-                <div id="loader">
-                    <div id="top"></div>
-                    <div id="bottom"></div>
-                    <div id="line"></div>
-                </div>
-            </div>
-            <div class="col-lg-4"></div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-8 options hidden alert fade in" id="learning"></div>
-            <div class="col-lg-2"></div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-3 options hidden alert fade in" id="option1"></div>
-            <div class="col-lg-2"></div>
-            <div class="col-lg-3 options hidden alert fade in" id="option2"></div>
-            <div class="col-lg-2"></div>
-        </div>
-        <div class="row">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-3 options hidden alert fade in" id="option3"></div>
-            <div class="col-lg-2"></div>
-            <div class="col-lg-3 options hidden alert fade in" id="option4"></div>
-            <div class="col-lg-2"></div>
-        </div>
-        <div class="row">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-3 options hidden alert fade in" id="option5"></div>
-            <div class="col-lg-2"></div>
-            <div class="col-lg-3 options hidden alert fade in" id="option6"></div>
-            <div class="col-lg-2"></div>
-        </div>
-        <div class="row">
-            <div class="form-group">
                 <div class="col-lg-2"></div>
-                <div class="col-lg-6"><input class="hidden form-control" id="TextInput" type="text" name="text" value="" style="max-width:1280px" /></div>
-                <div class="col-lg-2"><button class="hidden btn btn-primary " id="submit" type="button">OK</button></div>
+                <div class="col-lg-8">
+                    <button id="button" class="btnBlueGreen btnPush btn" type="button" onclick="click()">Start Lesson</button>
+                </div>
                 <div class="col-lg-2"></div>
             </div>
-        </div>
-
-        <div class="hidden" id="resultMessage">
-            <div class="row"><div class="col-lg-12"><h2>Results:</h2></div></div>
-            <div class="row"><div class="col-lg-12"><h4 id="result"></h4></div></div>
             <div class="row">
-                <table class="table ">
-                    <thead>
-                        <tr>
-                            <th>Word</th>
-                            <th>Meaning</th>
-                            <th>Your answer</th>
-                            <th>Level</th>
-                            <!--<th>OK?</th>              table-striped       -->
-                        </tr>
-                    </thead>
-                    <tbody id="ResultTableBody"></tbody>
-                </table>
+                <div id="currentBar" class="progress hidden">
+                    <div id="currentWord" class="progress-bar hidden" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8  mainButton alert hidden">
+                    <div id="wordText" class="hidden">
+
+                    </div>
+                </div>
+                <div class="col-lg-2"></div>
+            </div>
+
+            <div class="hourGlass row hidden">
+                <div class="col-lg-4"></div>
+                <div class="col-lg-4">
+                    <div id="loader">
+                        <div id="top"></div>
+                        <div id="bottom"></div>
+                        <div id="line"></div>
+                    </div>
+                </div>
+                <div class="col-lg-4"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8 options hidden alert fade in" id="learning"></div>
+                <div class="col-lg-2"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-3 options hidden alert fade in" id="option1"></div>
+                <div class="col-lg-2"></div>
+                <div class="col-lg-3 options hidden alert fade in" id="option2"></div>
+                <div class="col-lg-2"></div>
             </div>
             <div class="row">
-                <button class="btn btn-info" type="button" id="resultButton"
-                        onclick="location.href='@Url.Action("Index", "Home")'">
-                    Go To Main Page
-                </button>
+                <div class="col-lg-2"></div>
+                <div class="col-lg-3 options hidden alert fade in" id="option3"></div>
+                <div class="col-lg-2"></div>
+                <div class="col-lg-3 options hidden alert fade in" id="option4"></div>
+                <div class="col-lg-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-3 options hidden alert fade in" id="option5"></div>
+                <div class="col-lg-2"></div>
+                <div class="col-lg-3 options hidden alert fade in" id="option6"></div>
+                <div class="col-lg-2"></div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-6"><input class="hidden form-control" id="TextInput" type="text" name="text" value="" style="max-width:1280px" /></div>
+                    <div class="col-lg-2"><button class="hidden btn btn-primary " id="submit" type="button">OK</button></div>
+                    <div class="col-lg-2"></div>
+                </div>
+            </div>
 
-                <button class="btn btn-info" type="button" id="repeatlearning"
-                        onclick="location.href='@Url.Action("Index", "Home/Learn")'">
-                    Learn again
-                </button>
+            <div class="hidden" id="resultMessage">
+                <div class="row"><div class="col-lg-12"><h2>Results:</h2></div></div>
+                <div class="row"><div class="col-lg-12"><h4 id="result"></h4></div></div>
+                <div class="row">
+                    <table class="table ">
+                        <thead>
+                            <tr>
+                                <th>Word</th>
+                                <th>Meaning</th>
+                                <th>Your answer</th>
+                                <th>Level</th>
+                                <!--<th>OK?</th>              table-striped       -->
+                            </tr>
+                        </thead>
+                        <tbody id="ResultTableBody"></tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <button class="btn btn-info" type="button" id="resultButton"
+                            onclick="location.href='@Url.Action("Index", "Home")'">
+                        Go To Main Page
+                    </button>
+
+                    <button class="btn btn-info" type="button" id="repeatlearning"
+                            onclick="location.href='@Url.Action("Index", "Home/Learn")'">
+                        Learn again
+                    </button>
+                </div>
             </div>
         </div>
     </div>

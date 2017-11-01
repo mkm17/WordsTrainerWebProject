@@ -284,6 +284,7 @@
     <Content Include="Images\chart_line.png" />
     <Content Include="Content\Layoutstyle.css" />
     <Content Include="Images\facebook-icon.png" />
+    <Content Include="Images\horseChess.PNG" />
     <Content Include="Images\library-1147815_960_720.jpg" />
     <Content Include="Images\package_games_board.png" />
     <Content Include="Content\Ribbon.css" />

@@ -10,7 +10,7 @@ namespace WordsTrainerWeb.Models.Helper_classes
         public NormalLearningStrategy()
         {
             this.id = 1;
-            this.name = "NormalLearningStrategy";
+            this.name = "Normal Learning Strategy";
         }
         public override int getBasicWords()
         {

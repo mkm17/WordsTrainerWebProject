@@ -1,7 +1,7 @@
 ﻿@model WordsTrainerWeb.Models.ExternalLoginListViewModel
 @using Microsoft.Owin.Security
 
-<h4>Use another service to log in.</h4>
+<h4>Use Facebook account to log in.</h4>
 <hr />
 @{
     var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
@@ -19,7 +19,7 @@
             <div id="socialLoginList" class="social-wrap">
                 
                     @foreach (AuthenticationDescription p in loginProviders) {
-                        <button type="submit" class="btn facebook" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">@p.AuthenticationType</button>
+                        <button type="submit" class="btn facebook" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="User your @p.Caption account to log in">@p.AuthenticationType</button>
                     }
                 
             </div>

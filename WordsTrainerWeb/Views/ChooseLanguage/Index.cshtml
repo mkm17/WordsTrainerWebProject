@@ -13,7 +13,16 @@
 
         <div class="form-group">
             <div class="row">
-                <h5 class="control-label col-md-2">Choose Language</h5>
+                <h5 class="control-label col-md-2">Choose your Language</h5>
+                <div class="col-md-10">
+                    @Html.DropDownListFor(x => x.language.id, new List<SelectListItem>
+                     { new SelectListItem{Text="POL", Value="0", Selected=true}},
+                     new { @disabled = "disabled", @class = "form-control" })
+                </div>
+            </div>
+            <div style="height:10px"></div>
+            <div class="row">
+                <h5 class="control-label col-md-2">Choose Language to Learn</h5>
                 <div class="col-md-10">
                     @Html.DropDownListFor(
                     x => x.language.id,

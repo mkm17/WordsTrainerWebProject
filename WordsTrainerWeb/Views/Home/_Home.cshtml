@@ -1,13 +1,19 @@
 ﻿<!--
 http://www.tabsicons.com
+https://thenounproject.com/olamoller/
 -->
-<div class="banner-image"> <div class="banner-text">Make learning of words simple.</div></div>
+<div class="banner-image"> 
+    <h1 class="app-title">The Words APP</h1>
+    <div class="banner-text">Make learning of words simple.</div>
+</div>
 <div class="jumbotron">
-    <h1>The Words APP</h1>
-    <p class="lead">
-        The Words app is a simple web application to learn new words in several languages.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis sem sed diam feugiat pellentesque. Aenean vehicula lacus sed magna blandit, nec finibus urna gravida. Aenean rhoncus ligula sit amet lobortis molestie. Nullam purus risus, iaculis id eros vitae, placerat euismod nibh. Sed mollis ultrices convallis. Nam posuere tristique arcu.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis sem sed diam feugiat pellentesque. Aenean vehicula lacus sed magna blandit, nec finibus urna gravida. Aenean rhoncus ligula sit amet lobortis molestie. Nullam purus risus, iaculis id eros vitae, placerat euismod nibh. Sed mollis ultrices convallis. Nam posuere tristique arcu.
+    <p class="lead main-content">
+        The Words App is a simple but highly effective application for learning new words.</br>
+        Basing on our own experience with other applications in the past we have created a tool that includes all features which were important and useful while getting to know new words.</br>
+        We release this version with great hope that our methods will help also you to learn thousands of specific words from a given language.</br>
+        Choose one of numerous language combinations to obtain your learning objective.</br>
+        It doesn't matter where you are! Learn at home, school or work, in a cafe or a park, commuting or waiting in a queue. The application is available on you desktop device and on mobile.</br>
+        If you haven't already done so, register now and use this genious free tool to gain the knowledge you need!</br>
     </p>
     @if (!Request.IsAuthenticated)
     {
@@ -23,46 +29,56 @@ http://www.tabsicons.com
         <div class="learn-button">@Html.ActionLink("Learn", "Learn", "Home")</div>
     }
 </div>
-<div class="row">
-    <div class="col-md-4">
-        <div class="desc-container">
-            <h2><img class="icon" src="~/Images/Skip-Forward.png" />Skip known words</h2>
-            <p>
-                Review a rich vocabulary of the application and select only those which are the most relevant for you.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis sem sed diam feugiat pellentesque. Aenean vehicula lacus sed magna blandit,
-                nec finibus urna gravida. Aenean rhoncus ligula sit amet lobortis molestie. Nullam purus risus, iaculis id eros vitae, placerat euismod nibh. Sed mollis ultrices convallis. Nam posuere tristique arcu.
-            </p>
+<div class="features-content">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="desc-container">
+                <h2><img class="icon" src="~/Images/horseChess.PNG" />Change your tactic</h2>
+                <p>
+                    Select your learning tactic.
+                    At the beginning you will be able to choose option to get to know more new words.
+                    After some time change a method to stabilize knowlede about used words.
+                    You will be able to change a tactic any time while you learning process.
+                </p>
+            </div>
         </div>
+        <div class="col-md-4">
+            <div class="desc-container">
+                <h2><img class="icon" src="~/Images/Skip-Forward.png" />Skip known words</h2>
+                <p>
+                    Review a rich vocabulary of the application and select only those which are the most relevant for you.
+                    There is a possibility to skip them on the beginning or later when you feel that certain word is no longer difficult for you.
+                    All skiped words will not hide from you.
+                    Sometimes you will be asked for review them once again.
+                </p>
+            </div>
 
-    </div>
-
-    <div class="col-md-4">
-        <div class="desc-container">
-            <h2><img class="icon" src="~/Images/package_games_board.png" />Change your tactic</h2>
-            <p>
-                Select your current learning tactic. At the beginning learn more new words. After some time change a method for preserving your words.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis sem sed diam feugiat pellentesque. Aenean vehicula lacus sed magna blandit, nec finibus urna gravida. Aenean rhoncus ligula sit amet lobortis molestie. Nullam purus risus, iaculis id eros vitae, placerat euismod nibh. Sed mollis ultrices convallis. Nam posuere tristique arcu.
-            </p>
         </div>
-    </div>
-
-    <div class="col-md-4">
-        <div class="desc-container">
-            <h2><img class="icon" src="~/Images/chart_line.png" />Check your progress</h2>
-            <p>
-                You will obtain continuously access to statistic of your learning process. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Morbi quis sem sed diam feugiat pellentesque. Aenean vehicula lacus sed magna blandit, nec finibus urna gravida. Aenean rhoncus ligula sit amet lobortis molestie. Nullam purus risus, iaculis id eros vitae, placerat euismod nibh. Sed mollis ultrices convallis. Nam posuere tristique arcu.
-            </p>
+        <div class="col-md-4">
+            <div class="desc-container">
+                <h2><img class="icon" src="~/Images/chart_line.png" />Check your progress</h2>
+                <p>
+                    You will obtain continuously access to statistic of your learning process.
+                    Check it time to time to know your progress and be motivated all the time.
+                </p>
+            </div>
         </div>
     </div>
 </div>
-<div class="row">
-    <h2>Do you have any comment? Contact us!</h2>
-    <div class="col-md-4">
+<div class="contact-contener">
+    <div class="row">
+        <h2>Do you have any comment? Contact us!</h2>
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+            <p>
+                Ping a message in any case. If you noticed an error, you have advice how to change a tool or just be in contact with us.
+                <a href="mailto:mkm17apps@gmail.com?Subject=The%20words%20app" target="_top">Send Mail to mkm17apps@gmail.com</a>
+            </p>
+        </div>
+        <div class="col-md-4">
 
-    </div>
-    <div class="col-md-8">
-
+        </div>
     </div>
 </div>
 <div class="absolute-object"></div>

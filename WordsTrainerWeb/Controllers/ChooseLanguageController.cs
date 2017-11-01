@@ -47,12 +47,9 @@ namespace WordsTrainerWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Index([Bind(Include = "language,strategy")]LanguageAndStrategyContener lanStr)
         {
-           // var ls = strategy.First();
             using (wordcontext = new WordsContext())
             {
                 UserCl usercl = wordcontext.Users.Where(x => x.name == User.Identity.Name).FirstOrDefault();
-                //UserCl usercl = WordsContext.Get().Users.Where(x => x.name == User.Identity.Name).First();
-
                 if (usercl.languages.Where(x => x.id == lanStr.language.id).FirstOrDefault() == null)
                 {
 

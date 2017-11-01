@@ -50,9 +50,7 @@
             contentType: "application/json; charset=utf-8",
             traditional: true,
             success: function (data) {
-
                 if (data) {
-                    // $("#language").text(data)
                     $("#languageFlag").css("background-image", "url('/Images/" + data + "flag.png')");
                 }
             },
@@ -66,8 +64,17 @@
 </script>
 <html lang="en">
 <head>
+    <meta name="google-site-verification" content="UlmQcGFr5yFV650IDAHN3K_R0_a_dzhE1LFOGEAt6bQ" />
     <meta charset="utf-8" />
-    <title>@ViewBag.Title</title>
+    <title>The Words APP - App to learn new words</title>
+    <meta name="description" content="The Words App is a simple but highly effective application for learning new words.
+        Basing on our own experience with other applications in the past we have created a tool that includes all features which were important and useful while getting to know new words.
+        We release this version with great hope that our methods will help also you to learn thousands of specific words from a given language.
+        Choose one of numerous language combinations to obtain your learning objective.
+        It doesn't matter where you are! Learn at home, school or work, in a cafe or a park, commuting or waiting in a queue. The application is available on you desktop device and on mobile.
+        If you haven't already done so, register now and use this genious free tool to gain the knowledge you need!">
+    <meta name="keywords" content="Learning of words, Nauka slowek, Skarzysko">
+    <link rel="canonical" href="https://thewordsapp.net" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @Styles.Render("~/Content/css")

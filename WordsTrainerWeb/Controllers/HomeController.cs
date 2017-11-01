@@ -33,16 +33,44 @@ namespace WordsTrainerWeb.Controllers
                 }
 
                 return View();
-                
+
             }
         }
+        public ActionResult SiteMap()
+        {
+            string xmlString = @"<?xml version='1.0' encoding='UTF-8'?>
+<urlset
+      xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'
+      xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+      xsi:schemaLocation='http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd'>
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
+<url>
+  <loc>https://thewordsapp.net/</loc>
+  <lastmod>2017-10-27T10:46:07+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>https://thewordsapp.net/Account/Register</loc>
+  <lastmod>2017-10-27T10:46:07+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>https://thewordsapp.net/Account/Login</loc>
+  <lastmod>2017-10-27T10:46:07+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+</urlset>";
+            return this.Content(xmlString, "text/xml");
+        }
         [Authorize]
         public ActionResult Learn()
         {
             using (wordContext = new WordsContext())
             {
-                try {
+                try
+                {
                     usercl = wordContext.Users.Where(x => x.name == User.Identity.Name).FirstOrDefault();
 
                     if (usercl.languages.Count < 1) { return RedirectToAction("Index", "ChooseLanguage"); }
@@ -56,7 +84,7 @@ namespace WordsTrainerWeb.Controllers
                                                    }, "Value", "Text");
                     return View(sl);
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     return View("Error");
                 }
@@ -123,7 +151,7 @@ namespace WordsTrainerWeb.Controllers
                 wordsForLearn = wordsForLearn.Union<UserWord>(wordContext.UserWords
                     .Where(x => x.levelOfKnowledge >= 9
                     && x.word.foreignLanguage.id == languageName
-                    && x.user.id == usercl.id).OrderBy(x=> x.lastTimeAccesed).Take(ls.getMasterWords()));
+                    && x.user.id == usercl.id).OrderBy(x => x.lastTimeAccesed).Take(ls.getMasterWords()));
 
             }
 
@@ -233,7 +261,7 @@ namespace WordsTrainerWeb.Controllers
             {
 
                 checkedWord = usercl.usersWords.Where(x => x.id == Convert.ToInt32(cell.Key)).First();
-                if ( checkedWord.word.foreignText.ToLower() == Convert.ToString(cell.Value).ToLower())
+                if (checkedWord.word.foreignText.ToLower() == Convert.ToString(cell.Value).ToLower())
                 {
                     if (checkedWord.levelOfKnowledge < 10)
                     {
