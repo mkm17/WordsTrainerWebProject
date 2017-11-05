@@ -2,11 +2,36 @@
 http://www.tabsicons.com
 https://thenounproject.com/olamoller/
 -->
-<div class="banner-image"> 
+<script type="text/javascript">
+    $(document).ready(function () {
+        var currentSection = 0;
+        var previousScrollValue = 0;
+        var _preventEvent = false;
+        $(window).keydown(function (e) {
+            if (_preventEvent || !(e.which === 40 || e.which === 38)) { return; }
+            _preventEvent = true
+            if (e.which === 40) {
+                (currentSection === 3 ? currentSection = 3 : currentSection++);
+            }
+            if (e.which === 38) {
+                (currentSection === 0 ? currentSection = 0 : currentSection--);
+            }
+            var section = $('#section' + currentSection)[0];
+            $('html, body').animate({
+                scrollTop: (currentSection!==0)?$('#section' + currentSection)[0].offsetTop:0
+            }, 800, function () {
+                window.location.hash = (currentSection!==0)?section.id:"";
+                _preventEvent = false;
+            });
+        });
+    });
+
+</script>
+<div class="banner-image" id="section0">
     <h1 class="app-title">The Words APP</h1>
     <div class="banner-text">Make learning of words simple.</div>
 </div>
-<div class="jumbotron">
+<div class="jumbotron" id="section1">
     <p class="lead main-content">
         The Words App is a simple but highly effective application for learning new words.</br>
         Basing on our own experience with other applications in the past we have created a tool that includes all features which were important and useful while getting to know new words.</br>
@@ -29,7 +54,7 @@ https://thenounproject.com/olamoller/
         <div class="learn-button">@Html.ActionLink("Learn", "Learn", "Home")</div>
     }
 </div>
-<div class="features-content">
+<div class="features-content" id="section2">
     <div class="row">
         <div class="col-md-4">
             <div class="desc-container">
@@ -65,7 +90,7 @@ https://thenounproject.com/olamoller/
         </div>
     </div>
 </div>
-<div class="contact-contener">
+<div class="contact-contener" id="section3">
     <div class="row">
         <h2>Do you have any comment? Contact us!</h2>
         <div class="col-md-4">

@@ -310,18 +310,18 @@
 
 @media screen and (min-width: 1200px) {
   .features-content {
-    height: 95vh;
+    height: 100vh;
     padding-top: 50px; }
   .jumbotron {
-    height: 95vh !important; }
+    height: 100vh !important; }
   .banner-image {
     padding-top: 130px !important; } }
 
 @media screen and (min-width: 768px) {
   .features-content {
-    height: 95vh; }
+    height: 100vh; }
   .jumbotron {
-    height: 95vh; }
+    height: 100vh; }
   .banner-image {
     padding-top: 130px; } }
 
