@@ -198,7 +198,7 @@
     opacity: 1;
     text-align: center;
     vertical-align: middle;
-    padding-top: 75px; }
+    padding-top: 1px; }
   body .banner-text {
     margin-top: auto;
     margin-bottom: auto;
@@ -315,7 +315,7 @@
   .jumbotron {
     height: 100vh !important; }
   .banner-image {
-    padding-top: 130px !important; } }
+    /* padding-top: 130px !important;*/ } }
 
 @media screen and (min-width: 768px) {
   .features-content {
@@ -323,5 +323,12 @@
   .jumbotron {
     height: 100vh; }
   .banner-image {
-    padding-top: 130px; } }
+    /*  padding-top: 130px;*/ } }
+
+.vertical-center {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%); }
 

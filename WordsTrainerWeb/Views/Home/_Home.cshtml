@@ -18,9 +18,9 @@ https://thenounproject.com/olamoller/
             }
             var section = $('#section' + currentSection)[0];
             $('html, body').animate({
-                scrollTop: (currentSection!==0)?$('#section' + currentSection)[0].offsetTop:0
+                scrollTop: (currentSection !== 0) ? $('#section' + currentSection)[0].offsetTop : 0
             }, 800, function () {
-                window.location.hash = (currentSection!==0)?section.id:"";
+                window.location.hash = (currentSection !== 0) ? section.id : "";
                 _preventEvent = false;
             });
         });
@@ -28,64 +28,70 @@ https://thenounproject.com/olamoller/
 
 </script>
 <div class="banner-image" id="section0">
-    <h1 class="app-title">The Words APP</h1>
-    <div class="banner-text">Make learning of words simple.</div>
+    <div class="vertical-center">
+        <h1 class="app-title">The Words APP</h1>
+        <div class="banner-text">Make learning of words simple.</div>
+    </div>
 </div>
 <div class="jumbotron" id="section1">
-    <p class="lead main-content">
-        The Words App is a simple but highly effective application for learning new words.</br>
-        Basing on our own experience with other applications in the past we have created a tool that includes all features which were important and useful while getting to know new words.</br>
-        We release this version with great hope that our methods will help also you to learn thousands of specific words from a given language.</br>
-        Choose one of numerous language combinations to obtain your learning objective.</br>
-        It doesn't matter where you are! Learn at home, school or work, in a cafe or a park, commuting or waiting in a queue. The application is available on you desktop device and on mobile.</br>
-        If you haven't already done so, register now and use this genious free tool to gain the knowledge you need!</br>
-    </p>
-    @if (!Request.IsAuthenticated)
-    {
-        <div class="home-buttons">
-            <div class="home-login-button">@Html.ActionLink("Login", "Login", "Account")</div>
-            <div class="register-container">
-                <div class="home-register-button">@Html.ActionLink("Register", "Register", "Account")</div>
+    <div class="vertical-center">
+        <p class="lead main-content">
+            The Words App is a simple but highly effective application for learning new words.</br>
+            Basing on our own experience with other applications in the past we have created a tool that includes all features which were important and useful while getting to know new words.</br>
+            We release this version with great hope that our methods will help also you to learn thousands of specific words from a given language.</br>
+            Choose one of numerous language combinations to obtain your learning objective.</br>
+            It doesn't matter where you are! Learn at home, school or work, in a cafe or a park, commuting or waiting in a queue. The application is available on you desktop device and on mobile.</br>
+            If you haven't already done so, register now and use this genious free tool to gain the knowledge you need!</br>
+        </p>
+        @if (!Request.IsAuthenticated)
+        {
+            <div class="home-buttons">
+                <div class="home-login-button">@Html.ActionLink("Login", "Login", "Account")</div>
+                <div class="register-container">
+                    <div class="home-register-button">@Html.ActionLink("Register", "Register", "Account")</div>
+                </div>
             </div>
-        </div>
-    }
-    else
-    {
-        <div class="learn-button">@Html.ActionLink("Learn", "Learn", "Home")</div>
-    }
+        }
+        else
+        {
+            <div class="learn-button">@Html.ActionLink("Learn", "Learn", "Home")</div>
+        }
+    </div>
 </div>
 <div class="features-content" id="section2">
-    <div class="row">
-        <div class="col-md-4">
-            <div class="desc-container">
-                <h2><img class="icon" src="~/Images/horseChess.PNG" />Change your tactic</h2>
-                <p>
-                    Select your learning tactic.
-                    At the beginning you will be able to choose option to get to know more new words.
-                    After some time change a method to stabilize knowlede about used words.
-                    You will be able to change a tactic any time while you learning process.
-                </p>
+    <div class="vertical">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="desc-container">
+                    <h2><img class="icon" src="~/Images/horseChess.PNG" />Change your tactic</h2>
+                    <p>
+                        Select your learning tactic. Start with choosing the option to get to know more and more new words.
+                        After a time switch to a method that stabilizes your understanding of formerly presented words.
+                        You are able to change a tactic anytime you want during you learning process.
+                    </p>
+                </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="desc-container">
-                <h2><img class="icon" src="~/Images/Skip-Forward.png" />Skip known words</h2>
-                <p>
-                    Review a rich vocabulary of the application and select only those which are the most relevant for you.
-                    There is a possibility to skip them on the beginning or later when you feel that certain word is no longer difficult for you.
-                    All skiped words will not hide from you.
-                    Sometimes you will be asked for review them once again.
-                </p>
-            </div>
+            <div class="col-md-4">
+                <div class="desc-container">
+                    <h2><img class="icon" src="~/Images/Skip-Forward.png" />Skip known words</h2>
+                    <p>
+                        Review a wide range of vocabulary within the application.
+                        Select them all or pick only the ones that seem the most relevant to you.
+                        There is a possibility to skip words just at the beginning or later when the certain word is no longer difficult for you.
+                        The skipped words won't disappear totally.
+                        You will be asked to repeat them once in a time to consolidate.
+                    </p>
+                </div>
 
-        </div>
-        <div class="col-md-4">
-            <div class="desc-container">
-                <h2><img class="icon" src="~/Images/chart_line.png" />Check your progress</h2>
-                <p>
-                    You will obtain continuously access to statistic of your learning process.
-                    Check it time to time to know your progress and be motivated all the time.
-                </p>
+            </div>
+            <div class="col-md-4">
+                <div class="desc-container">
+                    <h2><img class="icon" src="~/Images/chart_line.png" />Check your progress</h2>
+                    <p>
+                        You will obtain a continuous access to the statistics of your learning process. 
+                        Check it regularly to monitor your progress and keep motivated.
+                    </p>
+                </div>
             </div>
         </div>
     </div>

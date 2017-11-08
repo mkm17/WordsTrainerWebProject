@@ -34,8 +34,7 @@ namespace WordsTrainerWeb.Controllers
                 strategiesToChoose.Add(s2);
                 strategiesToChoose.Add(s3);
 
-                languagesToChoose = wordcontext.Languages.ToList();
-
+                languagesToChoose = wordcontext.Languages.Where((el) => el.id <3).ToList();
                 ViewBag.Strategies = strategiesToChoose;
                 ViewBag.Languages = languagesToChoose;
                 
